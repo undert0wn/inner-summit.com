@@ -11,25 +11,39 @@
       background: #0b0f14;
       color: #e7edf3;
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      /* REMOVED ALL BACKGROUND STYLES FROM BODY */
+      position: relative; /* Needed for the ::before pseudo-element to be positioned correctly */
+    }
 
-      /* UPDATED BACKGROUND IMAGE STYLES */
+    /* NEW STYLES FOR THE TRANSPARENT BACKGROUND IMAGE */
+    body::before {
+      content: ''; /* Required for pseudo-elements */
+      position: fixed; /* Keep it fixed in the background while scrolling */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Puts the layer BEHIND all other content */
+      
+      /* BACKGROUND IMAGE PROPERTIES (20% VISIBLE, LARGE, CENTERED) */
       background-image: url('innersummit-gemini.png');
       background-repeat: no-repeat;
-      background-position: center center; /* Center horizontally and vertically */
-      background-size: 90%; /* Make it very large, 90% of the body's width/height */
-      background-attachment: fixed; /* KEEP IMAGE FIXED WHILE SCROLLING */
-      opacity: 0.2; /* Set transparency to 20% visible (0.0 to 1.0) */
-      min-height: 100vh; /* Ensure the body covers the full viewport height */
+      background-position: center center;
+      background-size: 90%; /* Size remains large (90%) */
+      
+      /* APPLY OPACITY TO ONLY THIS BACKGROUND LAYER */
+      opacity: 0.2; /* 20% visible / 80% transparent */
     }
 
     main {
-      /* ADDED Z-INDEX TO KEEP CONTENT ABOVE BACKGROUND IMAGE */
-      position: relative;
-      z-index: 2; /* Ensure content is above the background effect */
+      /* Keep main content layout */
       max-width: 800px;
       margin: 0 auto;
       padding: 56px 20px;
+      /* Removed z-index and position, as body::before handles layering */
     }
+    
     /* Style for the logo image */
     .logo {
       display: block;
