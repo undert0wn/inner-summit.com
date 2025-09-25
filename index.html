@@ -11,17 +11,30 @@
       background: #0b0f14;
       color: #e7edf3;
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+
+      /* UPDATED BACKGROUND IMAGE STYLES */
+      background-image: url('innersummit-gemini.png');
+      background-repeat: no-repeat;
+      background-position: center center; /* Center horizontally and vertically */
+      background-size: 90%; /* Make it very large, 90% of the body's width/height */
+      background-attachment: fixed; /* KEEP IMAGE FIXED WHILE SCROLLING */
+      opacity: 0.2; /* Set transparency to 20% visible (0.0 to 1.0) */
+      min-height: 100vh; /* Ensure the body covers the full viewport height */
     }
+
     main {
+      /* ADDED Z-INDEX TO KEEP CONTENT ABOVE BACKGROUND IMAGE */
+      position: relative;
+      z-index: 2; /* Ensure content is above the background effect */
       max-width: 800px;
       margin: 0 auto;
       padding: 56px 20px;
     }
     /* Style for the logo image */
     .logo {
-      display: block; /* Make it a block element for easy centering */
-      margin: 0 0 16px; /* Space below the logo */
-      max-width: 300px; /* Adjust size as needed, e.g., changed from 100px to 300px wide */
+      display: block;
+      margin: 0 0 16px;
+      max-width: 200px; /* Logo size */
       height: auto;
     }
     h1 {
@@ -65,7 +78,7 @@
 
     <p>Let’s connect, share ideas, and keep learning together.
       <br />
-      <a href="mailto:about@inner-summit.com?subject=I'm%20interested%20in%20Inner%20Summit!">about@inner-summit.com</a>
+      <a href="mailto:admin@inner-summit.com?subject=I'm%20interested%20in%20Inner%20Summit!">admin@inner-summit.com</a>
     </p>
 
     <footer>© <span id="y"></span> Inner Summit</footer>
@@ -77,5 +90,3 @@
   </script>
 </body>
 </html>
-
-
